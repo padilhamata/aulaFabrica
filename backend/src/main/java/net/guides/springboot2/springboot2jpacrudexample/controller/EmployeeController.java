@@ -26,7 +26,7 @@ import net.guides.springboot2.springboot2jpacrudexample.repository.EmployeeRepos
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
-public class EmployeeController {
+public class EmployeeController { 
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
