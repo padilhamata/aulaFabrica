@@ -1,6 +1,7 @@
 package net.guides.springboot2.springboot2jpacrudexample;
 
 import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -17,52 +18,52 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
-import net.guides.springboot2.springboot2jpacrudexample.model.Employee;
+import net.guides.springboot2.springboot2jpacrudexample.model.Empregado;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class EmployeeControllerIntegrationTest {
+public class TesteIntegracaoControleEmpregado {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
 	@LocalServerPort
 	private int port;
 
-	private String getRootUrl() {
+	private String pegueUrl() {
 		return "http://localhost:" + port;
 	}
 
 	@Test
-	public void contextLoads() {
+	public void cargaContexto() {
 
 	}
 
 	@Test
-	public void testGetAllEmployees() {
+	public void testePegueTodosEmpregados() {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
-		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/employees",
+		ResponseEntity<String> response = restTemplate.exchange(pegueUrl() + "/empregados",
 				HttpMethod.GET, entity, String.class);
 		
 		assertNotNull(response.getBody());
 	}
 
 	@Test
-	public void testGetEmployeeById() {
-		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/1", Employee.class);
-		System.out.println(employee.getFirstName());
+	public void testePegueEmpregadosPorId() {
+		Empregado employee = restTemplate.getForObject(pegueUrl() + "/empregados/1", Empregado.class);
+		System.out.println(employee.getnome());
 		assertNotNull(employee);
 	}
 
 	@Test
 	public void testCreateEmployee() {
-		Employee employee = new Employee();
-		employee.setEmailId("admin@gmail.com");
-		employee.setFirstName("admin");
-		employee.setLastName("admin");
+		Empregado employee = new Empregado();
+		employee.setidEmail("admin@gmail.com");
+		employee.setnome("admin");
+		employee.setnome("admin");
 
-		ResponseEntity<Employee> postResponse = restTemplate.postForEntity(getRootUrl() + "/employees", employee, Employee.class);
+		ResponseEntity<Empregado> postResponse = restTemplate.postForEntity(pegueUrl() + "/empregados", employee, Empregado.class);
 		assertNotNull(postResponse);
 		assertNotNull(postResponse.getBody());
 	}
@@ -70,26 +71,26 @@ public class EmployeeControllerIntegrationTest {
 	@Test
 	public void testUpdateEmployee() {
 		int id = 1;
-		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
-		employee.setFirstName("admin1");
-		employee.setLastName("admin2");
+		Empregado employee = restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
+		employee.setnome("admin1");
+		employee.setsobrenome("admin2");
 
-		restTemplate.put(getRootUrl() + "/employees/" + id, employee);
+		restTemplate.put(pegueUrl() + "/employees/" + id, employee);
 
-		Employee updatedEmployee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
+		Empregado updatedEmployee = restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
 		assertNotNull(updatedEmployee);
 	}
 
 	@Test
 	public void testDeleteEmployee() {
 		int id = 2;
-		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
+		Empregado employee = restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
 		assertNotNull(employee);
 
-		restTemplate.delete(getRootUrl() + "/employees/" + id);
+		restTemplate.delete(pegueUrl() + "/empregados/" + id);
 
 		try {
-			employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
+			employee = restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
 		} catch (final HttpClientErrorException e) {
 			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
 		}

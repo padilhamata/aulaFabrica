@@ -8,22 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "empregado")
+public class Empregado {
 
 	private long id;
-	private String firstName;
-	private String lastName;
-	private String emailId;
+	private String nome;
+	private String sobrenome;
+	private String idEmail;
 	
-	public Employee() {
+	public Empregado() {
 		
 	}
 	
-	public Employee(String firstName, String lastName, String emailId) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailId = emailId;
+	public Empregado(String nome, String sobrenome, String idEmail) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.idEmail = idEmail;
 	}
 	
 	@Id
@@ -35,34 +35,35 @@ public class Employee {
 		this.id = id;
 	}
 	
-	@Column(name = "first_name", nullable = false)
-	public String getFirstName() {
-		return firstName;
+	@Column(name = "Nome", nullable = false)
+	public String getnome() {
+		return nome;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	@Column(name = "last_name", nullable = false)
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setnome(String nome) {
+		
+		this.nome = nome;
 	}
 	
-	@Column(name = "email_address", nullable = false)
-	public String getEmailId() {
-		return emailId;
+	@Column(name = "sobrenome", nullable = false)
+	public String getsobrenome() {
+		return sobrenome;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setsobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+	
+	@Column(name = "email", nullable = false)
+	public String getidEmail() {
+		return idEmail;
+	}
+	public void setidEmail(String idEmail) {
+		this.idEmail = idEmail;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
+		return "Empregado [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", idEmail=" + idEmail 
 				+ "]";
 	}
-	
+
 }
