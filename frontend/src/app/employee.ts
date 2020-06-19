@@ -1,7 +1,7 @@
-export class Employee {
+export class Empregado {
   id: number;
-  firstName: string;
-  lastName: string;
-  emailId: string;
+  nome: string;
+  sobrenome: string;
+  email: string;
   active: boolean;
 }

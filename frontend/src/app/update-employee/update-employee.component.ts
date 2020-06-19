@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee';
+import { Empregado } from '../employee';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeeService } from '../employee.service';
+import { EmpregadoServico } from '../employee.service';
 
 @Component({
   selector: 'app-update-employee',
   templateUrl: './update-employee.component.html',
   styleUrls: ['./update-employee.component.css']
 })
-export class UpdateEmployeeComponent implements OnInit {
+export class AtualizaEmpregadoComponente implements OnInit {
 
   id: number;
-  employee: Employee;
+  empregado: Empregado;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: EmployeeService) { }
+    private empregadoServico: EmpregadoServico) { }
 
   ngOnInit() {
-    this.employee = new Employee();
+    this.empregado = new Empregado();
 
     this.id = this.route.snapshot.params['id'];
     
-    this.employeeService.getEmployee(this.id)
+    this.empregadoServico.getEmpregado(this.id)
       .subscribe(data => {
         console.log(data)
-        this.employee = data;
+        this.empregado = data;
       }, error => console.log(error));
   }
 
   updateEmployee() {
-    this.employeeService.updateEmployee(this.id, this.employee)
+    this.empregadoServico.atualizaEmpregado(this.id, this.empregado)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.employee = new Employee();
+    this.empregado = new Empregado();
     this.gotoList();
   }
 

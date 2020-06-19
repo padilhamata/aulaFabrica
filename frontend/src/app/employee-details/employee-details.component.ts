@@ -1,7 +1,7 @@
-import { Employee } from '../employee';
+import { Empregado } from '../employee';
 import { Component, OnInit, Input } from '@angular/core';
-import { EmployeeService } from '../employee.service';
-import { EmployeeListComponent } from '../employee-list/employee-list.component';
+import { EmpregadoServico } from '../employee.service';
+import { EmpregadoListaComponente } from '../empregado-list/employee-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,20 +9,20 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './employee-details.component.html',
   styleUrls: ['./employee-details.component.css']
 })
-export class EmployeeDetailsComponent implements OnInit {
+export class ComponeteDetalhesempregado implements OnInit {
 
   id: number;
-  employee: Employee;
+  employee: Empregado;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: EmployeeService) { }
+    private empregadoServico: EmpregadoServico) { }
 
   ngOnInit() {
-    this.employee = new Employee();
+    this.employee = new Empregado();
 
     this.id = this.route.snapshot.params['id'];
     
-    this.employeeService.getEmployee(this.id)
+    this.empregadoServico.getEmpregado(this.id)
       .subscribe(data => {
         console.log(data)
         this.employee = data;

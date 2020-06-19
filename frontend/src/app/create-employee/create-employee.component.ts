@@ -1,5 +1,5 @@
-import { EmployeeService } from '../employee.service';
-import { Employee } from '../employee';
+import { EmpregadoServico } from '../employee.service';
+import { Empregado } from '../employee';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
   templateUrl: './create-employee.component.html',
   styleUrls: ['./create-employee.component.css']
 })
-export class CreateEmployeeComponent implements OnInit {
+export class CriarEmpregadoComponent implements OnInit {
 
-  employee: Employee = new Employee();
+  empregado: Empregado = new Empregado();
   submitted = false;
 
-  constructor(private employeeService: EmployeeService,
+  constructor(private employeeService: EmpregadoServico,
     private router: Router) { }
 
   ngOnInit() {
@@ -21,13 +21,13 @@ export class CreateEmployeeComponent implements OnInit {
 
   newEmployee(): void {
     this.submitted = false;
-    this.employee = new Employee();
+    this.empregado = new Empregado();
   }
 
   save() {
-    this.employeeService.createEmployee(this.employee)
+    this.employeeService.criarEmpregado(this.empregado)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.employee = new Employee();
+    this.empregado = new Empregado();
     this.gotoList();
   }
 

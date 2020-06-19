@@ -1,7 +1,7 @@
-import { EmployeeDetailsComponent } from './../employee-details/employee-details.component';
+import { ComponeteDetalhesempregado } from './../employee-details/employee-details.component';
 import { Observable } from "rxjs";
-import { EmployeeService } from "./../employee.service";
-import { Employee } from "./../employee";
+import { EmpregadoServico } from "./../employee.service";
+import { Empregado } from "./../employee";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 
@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   templateUrl: "./employee-list.component.html",
   styleUrls: ["./employee-list.component.css"]
 })
-export class EmployeeListComponent implements OnInit {
-  employees: Observable<Employee[]>;
+export class EmpregadoListaComponente implements OnInit {
+  empregados: Observable<Empregado[]>;
 
-  constructor(private employeeService: EmployeeService,
+  constructor(private empregadoServico: EmpregadoServico,
     private router: Router) {}
 
   ngOnInit() {
@@ -21,11 +21,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   reloadData() {
-    this.employees = this.employeeService.getEmployeesList();
+    this.empregados = this.empregadoServico.getEmpregadoLista();
   }
 
   deleteEmployee(id: number) {
-    this.employeeService.deleteEmployee(id)
+    this.empregadoServico.deleteEmpregado(id)
       .subscribe(
         data => {
           console.log(data);
@@ -34,11 +34,11 @@ export class EmployeeListComponent implements OnInit {
         error => console.log(error));
   }
 
-  employeeDetails(id: number){
+  empregadoDetalhes(id: number){
     this.router.navigate(['details', id]);
   }
 
-  updateEmployee(id: number){
+  atualizaEmpregado(id: number){
     this.router.navigate(['update', id]);
   }
 }
