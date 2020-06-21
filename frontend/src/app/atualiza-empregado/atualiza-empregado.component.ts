@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Empregado } from '../employee';
+import { Empregado } from '../empregado';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmpregadoServico } from '../employee.service';
+import { EmpregadoServico } from '../empregado.service';
 
 @Component({
-  selector: 'app-update-employee',
-  templateUrl: './update-employee.component.html',
-  styleUrls: ['./update-employee.component.css']
+  selector: 'app-atualiza-empregado',
+  templateUrl: './atualiza-empregado.component.html',
+  styleUrls: ['./atualiza-empregado.component.css']
 })
 export class AtualizaEmpregadoComponente implements OnInit {
 

@@ -1,9 +1,9 @@
-import { ComponeteDetalhesempregado} from './employee-details/employee-details.component';
-import { CriarEmpregadoComponent } from './create-employee/create-employee.component';
+import { ComponeteDetalhesempregado} from './empregado-detalhes/empregado-detalhes.component';
+import { CriarEmpregadoComponent } from './criar-empregado/criar-empregado.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EmpregadoListaComponente } from './empregado-list/employee-list.component';
-import { AtualizaEmpregadoComponente } from './update-employee/update-employee.component';
+import { EmpregadoListaComponente } from './empregado-lista/empregado-lista.component';
+import { AtualizaEmpregadoComponente } from './atualiza-empregado/atualiza-empregado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'employee', pathMatch: 'full' },

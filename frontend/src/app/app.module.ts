@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CriarEmpregadoComponent } from './create-employee/create-employee.component';
-import { ComponeteDetalhesempregado } from './employee-details/employee-details.component';
-import { EmpregadoListaComponente } from './empregado-list/employee-list.component';
+import { CriarEmpregadoComponent } from './criar-empregado/criar-empregado.component';
+import { ComponeteDetalhesempregado } from './empregado-detalhes/empregado-detalhes.component';
+import { EmpregadoListaComponente } from './empregado-lista/empregado-lista.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AtualizaEmpregadoComponente } from './update-employee/update-employee.component';
+import { AtualizaEmpregadoComponente } from './atualiza-empregado/atualiza-empregado.component';
 @NgModule({
   declarations: [
     AppComponent,

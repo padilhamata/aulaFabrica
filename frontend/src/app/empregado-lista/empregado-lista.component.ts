@@ -1,14 +1,14 @@
-import { ComponeteDetalhesempregado } from './../employee-details/employee-details.component';
+import { ComponeteDetalhesempregado } from '../empregado-detalhes/empregado-detalhes.component';
 import { Observable } from "rxjs";
-import { EmpregadoServico } from "./../employee.service";
-import { Empregado } from "./../employee";
+import { EmpregadoServico } from "../empregado.service";
+import { Empregado } from "../empregado";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-employee-list",
-  templateUrl: "./employee-list.component.html",
-  styleUrls: ["./employee-list.component.css"]
+  selector: "app-empregado-lista",
+  templateUrl: "./empregado-lista.component.html",
+  styleUrls: ["./empregado-lista.component.css"]
 })
 export class EmpregadoListaComponente implements OnInit {
   empregados: Observable<Empregado[]>;

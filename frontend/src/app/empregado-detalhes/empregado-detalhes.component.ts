@@ -1,13 +1,13 @@
-import { Empregado } from '../employee';
+import { Empregado } from '../empregado';
 import { Component, OnInit, Input } from '@angular/core';
-import { EmpregadoServico } from '../employee.service';
-import { EmpregadoListaComponente } from '../empregado-list/employee-list.component';
+import { EmpregadoServico } from '../empregado.service';
+import { EmpregadoListaComponente } from '../empregado-lista/empregado-lista.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-employee-details',
-  templateUrl: './employee-details.component.html',
-  styleUrls: ['./employee-details.component.css']
+  selector: 'app-empregado-detalhes',
+  templateUrl: './empregado-detalhes.component.html',
+  styleUrls: ['./empregado-detalhes.component.css']
 })
 export class ComponeteDetalhesempregado implements OnInit {
 
