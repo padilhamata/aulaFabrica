@@ -30,13 +30,13 @@ public class ControleEmpregado {
 	@Autowired
 	private RepositorioEmpregado repositorioEmpregado;
 
-	@GetMapping("/empregado")
+	@GetMapping("/empregados")
 	public List<Empregado> getAllEmployees() {
 		return repositorioEmpregado.findAll();
 	}
 
 	
-	@GetMapping("/empregado/{id}")
+	@GetMapping("/empregados/{id}")
 	public ResponseEntity<Empregado> getEmployeeById(@PathVariable(value = "id") Long idEmpregado)
 			throws RecursoExcecaoNaoEncontrado {
 		Empregado empregado = repositorioEmpregado.findById(idEmpregado)
@@ -44,7 +44,7 @@ public class ControleEmpregado {
 		return ResponseEntity.ok().body(empregado);
 	}
 
-	@PostMapping("/empregado")
+	@PostMapping("/empregados")
 	public Empregado criarEmpregado(@Valid @RequestBody Empregado empregado) {
 		return repositorioEmpregado.save(empregado);
 	}
@@ -63,7 +63,7 @@ public class ControleEmpregado {
 	}
 	
 
-	@DeleteMapping("/empregado/{id}")
+	@DeleteMapping("/empregados/{id}")
 	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long idEmpregado)
 			throws RecursoExcecaoNaoEncontrado {
 		Empregado empregado = repositorioEmpregado.findById(idEmpregado)

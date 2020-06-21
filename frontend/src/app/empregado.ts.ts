@@ -2,6 +2,6 @@ export class Empregado {
     id: number;
     nome: string;
     sobrenome: string;
-    email: string;
+    idEmail: string;
     active: boolean;
 }
