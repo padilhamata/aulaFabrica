@@ -12,24 +12,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ComponeteDetalhesempregado implements OnInit {
 
   id: number;
-  employee: Empregado;
+  empregado: Empregado;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private empregadoServico: EmpregadoServico) { }
 
   ngOnInit() {
-    this.employee = new Empregado();
+    this.empregado = new Empregado();
 
     this.id = this.route.snapshot.params['id'];
     
     this.empregadoServico.getEmpregado(this.id)
       .subscribe(data => {
         console.log(data)
-        this.employee = data;
+        this.empregado = data;
       }, error => console.log(error));
   }
 
   list(){
-    this.router.navigate(['employees']);
+    this.router.navigate(['empregados']);
   }
 }

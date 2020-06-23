@@ -24,7 +24,7 @@ export class EmpregadoListaComponente implements OnInit {
     this.empregados = this.empregadoServico.getEmpregadoLista();
   }
 
-  deleteEmployee(id: number) {
+  deleteEmpregado(id: number) {
     this.empregadoServico.deleteEmpregado(id)
       .subscribe(
         data => {

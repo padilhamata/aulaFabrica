@@ -28,7 +28,7 @@ export class AtualizaEmpregadoComponente implements OnInit {
       }, error => console.log(error));
   }
 
-  updateEmployee() {
+  atualizaEmpregado() {
     this.empregadoServico.atualizaEmpregado(this.id, this.empregado)
       .subscribe(data => console.log(data), error => console.log(error));
     this.empregado = new Empregado();
@@ -36,10 +36,10 @@ export class AtualizaEmpregadoComponente implements OnInit {
   }
 
   onSubmit() {
-    this.updateEmployee();    
+    this.atualizaEmpregado();    
   }
 
   gotoList() {
-    this.router.navigate(['/employees']);
+    this.router.navigate(['/empregado']);
   }
 }
