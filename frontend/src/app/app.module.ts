@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { CriarEmpregadoComponent } from './criar-empregado/criar-empregado.component';
+import { ComponeteDetalhesempregado } from './empregado-detalhes/empregado-detalhes.component';
+import { EmpregadoListaComponente } from './empregado-lista/empregado-lista.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { AtualizaEmpregadoComponente } from './atualiza-empregado/atualiza-empregado.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateEmployeeComponent,
-    EmployeeDetailsComponent,
-    EmployeeListComponent,
-    UpdateEmployeeComponent
+    CriarEmpregadoComponent,
+    ComponeteDetalhesempregado,
+    EmpregadoListaComponente,
+    AtualizaEmpregadoComponente
   ],
   imports: [
     BrowserModule,
