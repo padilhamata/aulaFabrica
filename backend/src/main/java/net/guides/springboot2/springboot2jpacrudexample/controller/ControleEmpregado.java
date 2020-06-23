@@ -51,13 +51,17 @@ public class ControleEmpregado {
 
 	@PutMapping("/empregados/{id}")
 	public ResponseEntity<Empregado> atualizarEmpregado(@PathVariable(value = "id") Long idEmpregado,
-			@Valid @RequestBody Empregado employeeDetails) throws RecursoExcecaoNaoEncontrado {
+			@Valid @RequestBody Empregado empregadoDetalhes) throws RecursoExcecaoNaoEncontrado {
 		Empregado empregado = repositorioEmpregado.findById(idEmpregado)
 				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
-
-		empregado.setidEmail(employeeDetails.getidEmail());
-		empregado.setsobrenome(employeeDetails.getsobrenome());
-		empregado.setnome(employeeDetails.getnome());
+		empregado.setNome(empregadoDetalhes.getNome());
+		empregado.setEndereco(empregadoDetalhes.getEndereco());
+		empregado.setTelefone(empregadoDetalhes.getTelefone());
+		empregado.setIdEmail(empregadoDetalhes.getIdEmail());
+		empregado.setCPF(empregadoDetalhes.getCPF());
+		empregado.setDataNascimento(empregado.getDataNascimento());
+		empregado.setFuncao(empregadoDetalhes.getFuncao());
+		
 		final Empregado atualizarEmpregado = repositorioEmpregado.save(empregado);
 		return ResponseEntity.ok(atualizarEmpregado);
 	}

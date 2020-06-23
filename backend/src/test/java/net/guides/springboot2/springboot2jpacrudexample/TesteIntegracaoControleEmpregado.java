@@ -51,19 +51,19 @@ public class TesteIntegracaoControleEmpregado {
 
 	@Test
 	public void testePegueEmpregadosPorId() {
-		Empregado employee = restTemplate.getForObject(pegueUrl() + "/empregados/1", Empregado.class);
-		System.out.println(employee.getnome());
-		assertNotNull(employee);
+		Empregado empregado = restTemplate.getForObject(pegueUrl() + "/empregados/1", Empregado.class);
+		System.out.println(empregado.getNome());
+		assertNotNull(empregado);
 	}
 
 	@Test
 	public void testCreateEmployee() {
-		Empregado employee = new Empregado();
-		employee.setidEmail("admin@gmail.com");
-		employee.setnome("admin");
-		employee.setnome("admin");
+		Empregado empregado= new Empregado();
+		empregado.setIdEmail("admin@gmail.com");
+		empregado.setNome("admin");
+		empregado.setEndereco("admin");
 
-		ResponseEntity<Empregado> postResponse = restTemplate.postForEntity(pegueUrl() + "/empregados", employee, Empregado.class);
+		ResponseEntity<Empregado> postResponse = restTemplate.postForEntity(pegueUrl() + "/empregados", empregado, Empregado.class);
 		assertNotNull(postResponse);
 		assertNotNull(postResponse.getBody());
 	}
@@ -71,11 +71,11 @@ public class TesteIntegracaoControleEmpregado {
 	@Test
 	public void testUpdateEmployee() {
 		int id = 1;
-		Empregado employee = restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
-		employee.setnome("admin1");
-		employee.setsobrenome("admin2");
+		Empregado empregado= restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
+		empregado.setNome("admin1");
+		empregado.setEndereco("admin2");
 
-		restTemplate.put(pegueUrl() + "/employees/" + id, employee);
+		restTemplate.put(pegueUrl() + "/employees/" + id, empregado);
 
 		Empregado updatedEmployee = restTemplate.getForObject(pegueUrl() + "/empregados/" + id, Empregado.class);
 		assertNotNull(updatedEmployee);

@@ -1,5 +1,7 @@
 package net.guides.springboot2.springboot2jpacrudexample.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,59 +13,81 @@ import javax.persistence.Table;
 @Table(name = "empregado")
 public class Empregado {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String nome;
-	private String sobrenome;
+	private String Endereco;
+	private String Telefone;
 	private String idEmail;
+	private String CPF;
+	private Date dataNascimento;
+	private String Funcao;// Mudar posteriormente
 	
 	public Empregado() {
 		
 	}
 	
-	public Empregado(String nome, String sobrenome, String idEmail) {
+	public Empregado(String nome, String endereco, String telefone, String idEmail, String cPF, Date dataNascimento,
+			String funcao) {
+		super();
 		this.nome = nome;
-		this.sobrenome = sobrenome;
+		Endereco = endereco;
+		Telefone = telefone;
 		this.idEmail = idEmail;
+		CPF = cPF;
+		this.dataNascimento = dataNascimento;
+		Funcao = funcao;
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	@Column(name = "Nome", nullable = false)
-	public String getnome() {
+	public String getNome() {
 		return nome;
 	}
-	public void setnome(String nome) {
-		
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	@Column(name = "sobrenome", nullable = false)
-	public String getsobrenome() {
-		return sobrenome;
+	public String getEndereco() {
+		return Endereco;
 	}
-	public void setsobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
+	public void setEndereco(String endereco) {
+		Endereco = endereco;
 	}
-	
-	@Column(name = "email", nullable = false)
-	public String getidEmail() {
+	public String getTelefone() {
+		return Telefone;
+	}
+	public void setTelefone(String telefone) {
+		Telefone = telefone;
+	}
+	public String getIdEmail() {
 		return idEmail;
 	}
-	public void setidEmail(String idEmail) {
+	public void setIdEmail(String idEmail) {
 		this.idEmail = idEmail;
 	}
-
-	@Override
-	public String toString() {
-		return "Empregado [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", idEmail=" + idEmail 
-				+ "]";
+	public String getCPF() {
+		return CPF;
 	}
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+	public String getFuncao() {
+		return Funcao;
+	}
+	public void setFuncao(String funcao) {
+		Funcao = funcao;
+	}
+	
+	
 
 }
