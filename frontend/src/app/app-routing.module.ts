@@ -7,7 +7,7 @@ import { AtualizaEmpregadoComponente } from './atualiza-empregado/atualiza-empre
 
 const routes: Routes = [
   { path: '', redirectTo: 'employee', pathMatch: 'full' },
-  { path: 'employees', component: EmpregadoListaComponente },
+  { path: 'empregados', component: EmpregadoListaComponente },
   { path: 'add', component: CriarEmpregadoComponent },
   { path: 'update/:id', component: AtualizaEmpregadoComponente },
   { path: 'details/:id', component: ComponeteDetalhesempregado },
