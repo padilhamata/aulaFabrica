@@ -30,6 +30,6 @@ export class ComponeteDetalhesempregado implements OnInit {
   }
 
   list(){
-    this.router.navigate(['empregados']);
+    this.router.navigate(['employees']);
   }
 }
