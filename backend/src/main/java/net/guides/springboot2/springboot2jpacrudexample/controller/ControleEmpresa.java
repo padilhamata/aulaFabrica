@@ -59,7 +59,7 @@ public class ControleEmpresa {
 		empresa.setTelefone(empresaDetalhes.getTelefone());
 		empresa.setEndereco(empresaDetalhes.getEndereco());
 		empresa.setDataFundacao(empresaDetalhes.getDataFundacao());
-		empresa.setProprietario(empresaDetalhes.getProprietario());
+		//empresa.setProprietario(empresaDetalhes.getProprietario());
 		
 		
 		

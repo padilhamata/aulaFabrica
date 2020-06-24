@@ -8,13 +8,21 @@ import { ComponeteDetalhesempregado } from './empregado-detalhes/empregado-detal
 import { EmpregadoListaComponente } from './empregado-lista/empregado-lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AtualizaEmpregadoComponente } from './atualiza-empregado/atualiza-empregado.component';
+import { CriarEmpresaComponent } from './criar-empresa/criar-empresa.component';
+import { EmpresaDetalhesComponent } from './empresa-detalhes/empresa-detalhes.component';
+import { EmpresaListComponent } from './empresa-list/empresa-list.component';
+import { AtualizarEmpresaComponent } from './atualizar-empresa/atualizar-empresa.component';
 @NgModule({
   declarations: [
     AppComponent,
     CriarEmpregadoComponent,
     ComponeteDetalhesempregado,
     EmpregadoListaComponente,
-    AtualizaEmpregadoComponente
+    AtualizaEmpregadoComponente,
+    CriarEmpresaComponent,
+    EmpresaDetalhesComponent,
+    EmpresaListComponent,
+    AtualizarEmpresaComponent
   ],
   imports: [
     BrowserModule,

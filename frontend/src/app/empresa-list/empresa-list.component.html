@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Lista de Empresa</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        melhorar
+        <tr>
+          <th>Nome</th>
+          <th>CNPJ</th>
+          <th>Telefone</th>
+          <th>Endereco</th>
+          <th>Data da Fundação</th>
+          <th>Proprietario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees | async">
+          <td>{{empresa.Nome}}</td>
+          <td>{{empresa.CNPJ}}</td>
+          <td>{{empresa.telefone}}</td>
+          <td>{{empresa.endereco}}</td>
+          <td>{{empresa.dataFundacao}}</td>
+          <td>{{empresa.Proprietario}}</td>
+           <td><button (click)="deleteEmpresa(empresa.id)" class="btn btn-danger">Excluir</button>
+              <button (click)="empresaDetalhes(empresa.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
