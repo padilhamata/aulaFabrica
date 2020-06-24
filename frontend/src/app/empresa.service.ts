@@ -28,7 +28,7 @@ export class EmpresaService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text'})
   }
 
-  getEmpresaLista(): Observable<any>{
-    return this.http.get(`${this.baseUrl}`)
+  getEmpresaLista(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
   }
 }

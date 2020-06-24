@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { EmpresaService } from '../empresa.service';
 import { Observable } from 'rxjs';
+import { EmpresaService } from '../empresa.service';
 import { Empresa } from '../empresa';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 @Component({
@@ -11,14 +11,14 @@ import { Router } from '@angular/router'
 })
 export class EmpresaListComponent implements OnInit {
 empresas: Observable<Empresa[]>
-  constructor(private empresaService : EmpresaService,
-    private router: Router) { }
+  constructor(private empresaService: EmpresaService,
+    private router: Router) {}
 
   ngOnInit() {
     this.carregarDados();
   }
 
-  carregarDados(){
+  carregarDados() {
     this.empresas = this.empresaService.getEmpresaLista();
   }
 

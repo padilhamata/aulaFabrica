@@ -57,7 +57,7 @@ public class ControleEmpregado {
 		empregado.setNome(empregadoDetalhes.getNome());
 		empregado.setEndereco(empregadoDetalhes.getEndereco());
 		empregado.setTelefone(empregadoDetalhes.getTelefone());
-		empregado.setIdEmail(empregadoDetalhes.getIdEmail());
+		empregado.setEmail(empregadoDetalhes.getEmail());
 		empregado.setCPF(empregadoDetalhes.getCPF());
 		empregado.setDataNascimento(empregado.getDataNascimento());
 		empregado.setFuncao(empregadoDetalhes.getFuncao());

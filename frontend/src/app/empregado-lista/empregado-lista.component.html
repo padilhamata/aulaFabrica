@@ -7,16 +7,24 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Sobrenome</th>
+          <th>Endereço</th>
+          <th>Telefone</th>
           <th>Email</th>
+          <th>CPF</th>
+          <th>Data de Nascimento</th>
+          <th>Função</th>
           <th>Comandos</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let empregado of empregados | async">
           <td>{{empregado.nome}}</td>
-          <td>{{empregado.sobrenome}}</td>
+          <td>{{empregado.endereco}}</td>
+          <td>{{empregado.telefone}}</td>
           <td>{{empregado.idEmail}}</td>
+          <td>{{empregado.CPF}}</td>
+          <td>{{empregado.dataNascimento}}</td>
+          <td>{{empregado.funcao}}</td>
           <td><button (click)="deleteEmpregado(empregado.id)" class="btn btn-danger">Delete</button>
               <button (click)="atualizaEmpregado(empregado.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
               <button (click)="empregadoDetalhes(empregado.id)" class="btn btn-info" style="margin-left: 10px">Details</button>

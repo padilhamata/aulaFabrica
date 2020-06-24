@@ -59,7 +59,7 @@ public class TesteIntegracaoControleEmpregado {
 	@Test
 	public void testCreateEmployee() {
 		Empregado empregado= new Empregado();
-		empregado.setIdEmail("admin@gmail.com");
+		empregado.setEmail("admin@gmail.com");
 		empregado.setNome("admin");
 		empregado.setEndereco("admin");
 
