@@ -36,7 +36,7 @@ empresas: Observable<Empresa[]>
     this.router.navigate(['detalhes', id])
   }
 
-  atualizaEmpresa(id: number){
+  atualizarEmpresa(id: number){
     this.router.navigate(['atualizar',id])
   }
 }
