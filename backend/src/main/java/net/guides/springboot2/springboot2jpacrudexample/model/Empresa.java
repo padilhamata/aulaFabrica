@@ -1,14 +1,20 @@
 package net.guides.springboot2.springboot2jpacrudexample.model;
 
 import java.util.Date;
+import java.util.Optional;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+@Embeddable
 @Entity
 @Table(name = "empresa")
 public class Empresa {
@@ -22,7 +28,8 @@ public class Empresa {
 	public String endereco;
 	public Date dataFundacao;
 	public Long idEmpregado;
-	@ManyToOne
+	@OneToOne
+	@JoinColumn
 	public Empregado proprietario;
 	
 	public Empresa() {
@@ -39,6 +46,14 @@ public class Empresa {
 		this.dataFundacao = dataFundacao;
 		this.idEmpregado = idEmpregado;
 		this.proprietario = proprietario;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -97,9 +112,5 @@ public class Empresa {
 		this.proprietario = proprietario;
 	}
 
-	
-
-
-	
-
+		
 }

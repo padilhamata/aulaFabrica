@@ -23,7 +23,7 @@
           <td>{{empresa.telefone}}</td>
           <td>{{empresa.endereco}}</td>
           <td>{{empresa.dataFundacao | date: 'dd/MM/yyyy'}}</td>
-          <td>{{empresa.proprietario}}</td>
+          <td>{{empresa.proprietario.nome}}</td>
            <td><button (click)="deleteEmpresa(empresa.id)" class="btn btn-danger">Excluir</button>
               <button (click)="empresaDetalhes(empresa.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
           </td>

@@ -31,7 +31,7 @@ submitted = false;
   }
 
   salvar(){
-    this.empresaService.criarEmpresa(this.empresa)
+    this.empresaService.criarEmpresa(this.empresa.idEmpregado,this.empresa)
     .subscribe(data => console.log(data),error => console.log(error))
     this.empresa = new Empresa();
     this.voltarLista();

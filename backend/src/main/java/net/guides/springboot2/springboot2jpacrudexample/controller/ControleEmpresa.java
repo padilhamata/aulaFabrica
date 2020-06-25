@@ -3,6 +3,7 @@ package net.guides.springboot2.springboot2jpacrudexample.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -30,7 +31,8 @@ import net.guides.springboot2.springboot2jpacrudexample.repository.RepositorioEm
 public class ControleEmpresa {
 	@Autowired
 	private RepositorioEmpresa repositorioEmpresa;
-	private RepositorioEmpregado repositorioEmpregado;
+	@Autowired
+	ControleEmpregado controleEmpregado= new ControleEmpregado();
 
 	@GetMapping("/empresas")
 	public List<Empresa> getAllEmployees() {
@@ -46,17 +48,17 @@ public class ControleEmpresa {
 		return ResponseEntity.ok().body(empresa);
 	}
 
-	@PostMapping("/empresas")
-	public Empresa criarEmpregado(@Valid @RequestBody Empresa empresa) {
-	
+	@PostMapping("/empresas/{id}")
+	public Empresa criarEmpregado(@PathVariable(value = "id") Long idEmpresa, @Valid @RequestBody Empresa empresa) throws RecursoExcecaoNaoEncontrado {
+	Empregado empregado = controleEmpregado.getEmpregadoById(idEmpresa);
+	empresa.setProprietario(empregado);
+		
 		return repositorioEmpresa.save(empresa);
 	}
 
 	@PutMapping("/empresas/{id}")
-	public ResponseEntity<Empresa> atualizarEmpresa(@PathVariable(value = "id") Long idEmpresa,
-			@Valid @RequestBody Empresa empresaDetalhes) throws RecursoExcecaoNaoEncontrado {
-		Empresa empresa= repositorioEmpresa.findById(idEmpresa)
-				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empresa não encontrado para este id: " + idEmpresa));
+	public ResponseEntity<Empresa> atualizarEmpresa(@PathVariable(value = "id") Long idEmpresa, @Valid @RequestBody Empresa empresaDetalhes) throws RecursoExcecaoNaoEncontrado {
+		Empresa empresa= repositorioEmpresa.findById(idEmpresa).orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empresa não encontrado para este id: " + idEmpresa));
 		empresa.setNome(empresaDetalhes.getNome());
 		empresa.setCNPJ(empresaDetalhes.getCNPJ());
 		empresa.setTelefone(empresaDetalhes.getTelefone());

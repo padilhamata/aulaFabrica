@@ -43,7 +43,14 @@ public class ControleEmpregado {
 				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
 		return ResponseEntity.ok().body(empregado);
 	}
-
+	public Empregado getEmpregadoById(@PathVariable(value = "id") Long idEmpregado)
+			throws RecursoExcecaoNaoEncontrado {
+		Empregado empregado = repositorioEmpregado.findById(idEmpregado)
+				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
+		return empregado;
+	}
+	
+	
 	@PostMapping("/empregados")
 	public Empregado criarEmpregado(@Valid @RequestBody Empregado empregado) {
 		return repositorioEmpregado.save(empregado);

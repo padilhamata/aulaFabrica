@@ -7,5 +7,6 @@ import net.guides.springboot2.springboot2jpacrudexample.model.Empregado;
 
 @Repository
 public interface RepositorioEmpregado extends JpaRepository<Empregado, Long>{
-
+	
+	Empregado findById(long id);
 }
