@@ -20,7 +20,7 @@ public class Empregado {
 	private String endereco;
 	private String telefone;
 	private String email;
-	private String CPF;
+	private String cpf;
 	private Date dataNascimento;
 	private String Funcao;// Mudar posteriormente
 	
@@ -28,14 +28,14 @@ public class Empregado {
 		
 	}
 
-	public Empregado(String nome, String endereco, String telefone, String email, String cPF, Date dataNascimento,
+	public Empregado(String nome, String endereco, String telefone, String email, String cpf, Date dataNascimento,
 			String funcao) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.email = email;
-		CPF = cPF;
+		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 		Funcao = funcao;
 	}
@@ -80,12 +80,12 @@ public class Empregado {
 		this.email = email;
 	}
 
-	public String getCPF() {
-		return CPF;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Date getDataNascimento() {

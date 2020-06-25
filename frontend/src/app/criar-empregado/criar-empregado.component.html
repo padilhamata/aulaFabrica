@@ -23,22 +23,24 @@
 
     <div class="form-group">
       <label for="name">CPF</label>
-      <input type="text" class="form-control" id="CPF" required [(ngModel)]="empregado.CPF" name="CPF">
+      <input type="text" class="form-control" id="cpf" required [(ngModel)]="empregado.cpf" name="cṕf">
     </div>
 
     <div class="form-group">
       <label for="name">Data de Nascimento</label>
-      <input type="text" class="form-control" id="dataNascimento" required [(ngModel)]="empregado.dataNascimento" name="dataNascimento">
+      <input type="date" class="form-control" id="dataNascimento" required [(ngModel)]="empregado.dataNascimento" name="dataNascimento">
     </div>
 
     <div class="form-group">
       <label for="name">Função</label>
-      <input type="text" class="form-control" id="funcao" required [(ngModel)]="empregado.funcao" name="funcao">
-    </div>
+      <select id="cars" class="form-control" id="funcao" required [(ngModel)]="empregado.funcao" name="funcao">
+        <option value="Administrativo">Administrativo</option>
+        <option value="Supervisão">Supervisão</option>
+        <option value="Gerência">Gerência</option>
+        <option value="Proprietário">Proprietário</option>
+      </select>
 
-    <div class="form-group">
-      <label for="name">Telefone</label>
-      <input type="text" class="form-control" id="telefone" required [(ngModel)]="empregado.telefone" name="telefone">
+     
     </div>
 
     <button type="submit" class="btn btn-success">Enviar</button>

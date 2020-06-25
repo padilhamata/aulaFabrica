@@ -15,10 +15,10 @@
     <label><b>Email: </b></label> {{empregado.email}}
   </div>
   <div>
-    <label><b>CPF: </b></label> {{empregado.CPF}}
+    <label><b>CPF: </b></label> {{empregado.cpf}}
   </div>
   <div>
-    <label><b>dataNascimento: </b></label> {{empregado.dataNascimento}}
+    <label><b>Data de Nascimento: </b></label> {{empregado.dataNascimento | date: 'dd/MM/yyyy'}}
   </div>
   <div>
     <label><b>Função: </b></label> {{empregado.funcao}}

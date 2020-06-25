@@ -21,17 +21,15 @@ public class Empresa {
 	public String telefone;
 	public String endereco;
 	public Date dataFundacao;
+	public Long idEmpregado;
 	@ManyToOne
-	public Empregado Proprietario;
+	public Empregado proprietario;
 	
 	public Empresa() {
 		
 	}
-	
-	
-	
 
-	public Empresa(String nome, String cNPJ, String telefone, String endereco, Date dataFundacao,
+	public Empresa(String nome, String cNPJ, String telefone, String endereco, Date dataFundacao, Long idEmpregado,
 			Empregado proprietario) {
 		super();
 		this.nome = nome;
@@ -39,18 +37,8 @@ public class Empresa {
 		this.telefone = telefone;
 		this.endereco = endereco;
 		this.dataFundacao = dataFundacao;
-		Proprietario = proprietario;
-	}
-
-
-
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+		this.idEmpregado = idEmpregado;
+		this.proprietario = proprietario;
 	}
 
 	public String getNome() {
@@ -93,12 +81,25 @@ public class Empresa {
 		this.dataFundacao = dataFundacao;
 	}
 
+	public Long getIdEmpregado() {
+		return idEmpregado;
+	}
+
+	public void setIdEmpregado(Long idEmpregado) {
+		this.idEmpregado = idEmpregado;
+	}
+
 	public Empregado getProprietario() {
-		return Proprietario;
+		return proprietario;
 	}
 
 	public void setProprietario(Empregado proprietario) {
-		Proprietario = proprietario;
+		this.proprietario = proprietario;
 	}
-		
+
+	
+
+
+	
+
 }

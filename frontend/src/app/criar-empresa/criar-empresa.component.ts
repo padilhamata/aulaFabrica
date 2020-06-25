@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from '../empresa';
 import { EmpresaService } from '../empresa.service';
+import { EmpregadoServico } from "../empregado.service";
 import { Router } from '@angular/router'
+import { Empregado } from "../empregado";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-criar-empresa',
@@ -9,16 +12,19 @@ import { Router } from '@angular/router'
   styleUrls: ['./criar-empresa.component.css']
 })
 export class CriarEmpresaComponent implements OnInit {
-
+  empregados: Observable<Empregado[]>;
 empresa: Empresa = new Empresa();
 submitted = false;
 
   constructor(private empresaService: EmpresaService,
+    private empregadoServico: EmpregadoServico,
     private router: Router) { }
 
   ngOnInit() {
+    this.empregados = this.empregadoServico.getEmpregadoLista();
   }
 
+  
   novaEmpresa(): void {
     this.submitted = false;
     this.empresa = new Empresa();

@@ -16,13 +16,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees | async">
-          <td>{{empresa.Nome}}</td>
+        <tr *ngFor="let empresa of empresas | async">
+          
+          <td>{{empresa.nome}}</td>
           <td>{{empresa.CNPJ}}</td>
           <td>{{empresa.telefone}}</td>
           <td>{{empresa.endereco}}</td>
-          <td>{{empresa.dataFundacao}}</td>
-          <td>{{empresa.Proprietario}}</td>
+          <td>{{empresa.dataFundacao | date: 'dd/MM/yyyy'}}</td>
+          <td>{{empresa.proprietario}}</td>
            <td><button (click)="deleteEmpresa(empresa.id)" class="btn btn-danger">Excluir</button>
               <button (click)="empresaDetalhes(empresa.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
           </td>

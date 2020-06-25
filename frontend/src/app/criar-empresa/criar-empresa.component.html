@@ -23,12 +23,16 @@
 
     <div class="form-group">
       <label for="name">Data De Fundação</label>
-      <input type="text" class="form-control" id="dataFundacao" required [(ngModel)]="empresa.dataFundacao" name="dataFundacao">
+      <input type="date" class="form-control" id="dataFundacao" required [(ngModel)]="empresa.dataFundacao" name="dataFundacao">
     </div>
 
     <div class="form-group">
       <label for="name">Propietario</label>
-      <input type="text" class="form-control" id="propietario" required [(ngModel)]="empresa.propietario" name="propietario">
+      
+        <select  class="form-control" id="propietario" required [(ngModel)]="empresa.idEmpregado" name="propietario">          
+          <option *ngFor="let empregado of empregados | async" value={{empregado.id}}>{{empregado.nome}}</option>
+      </select>
+     
     </div>
 
     <button type="submit" class="btn btn-success">Enviar</button>

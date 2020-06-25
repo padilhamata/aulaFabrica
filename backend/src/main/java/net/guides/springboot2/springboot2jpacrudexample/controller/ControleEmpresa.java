@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import net.guides.springboot2.springboot2jpacrudexample.exception.RecursoExcecaoNaoEncontrado;
 import net.guides.springboot2.springboot2jpacrudexample.model.Empregado;
 import net.guides.springboot2.springboot2jpacrudexample.model.Empresa;
+import net.guides.springboot2.springboot2jpacrudexample.repository.RepositorioEmpregado;
 import net.guides.springboot2.springboot2jpacrudexample.repository.RepositorioEmpresa;
 
 @CrossOrigin
@@ -29,6 +30,7 @@ import net.guides.springboot2.springboot2jpacrudexample.repository.RepositorioEm
 public class ControleEmpresa {
 	@Autowired
 	private RepositorioEmpresa repositorioEmpresa;
+	private RepositorioEmpregado repositorioEmpregado;
 
 	@GetMapping("/empresas")
 	public List<Empresa> getAllEmployees() {
@@ -46,6 +48,7 @@ public class ControleEmpresa {
 
 	@PostMapping("/empresas")
 	public Empresa criarEmpregado(@Valid @RequestBody Empresa empresa) {
+	
 		return repositorioEmpresa.save(empresa);
 	}
 
@@ -68,7 +71,7 @@ public class ControleEmpresa {
 	}
 	
 
-	@DeleteMapping("/empresa/{id}")
+	@DeleteMapping("/empresas/{id}")
 	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long idEmpresa)
 			throws RecursoExcecaoNaoEncontrado {
 		Empresa empresa= repositorioEmpresa.findById(idEmpresa)

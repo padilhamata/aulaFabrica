@@ -1,3 +1,4 @@
+
 export class Empresa {
   id: number;
   nome: string;
@@ -5,6 +6,6 @@ export class Empresa {
   telefone: string;
   endereco: string
   dataFundacao : Date;
-  proprietario: string;
+  idEmpregado:  string;
   active: boolean;
 }

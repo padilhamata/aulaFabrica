@@ -4,7 +4,7 @@ export class Empregado {
   endereco: string;
   telefone: string;
   email: string;
-  CPF : string;
+  cpf : string;
   dataNascimento: string;
   funcao: string;
   active: boolean;
