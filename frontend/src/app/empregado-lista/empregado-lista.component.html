@@ -25,13 +25,15 @@
           <td>{{empregado.cpf}}</td>
           <td>{{empregado.dataNascimento | date: 'dd/MM/yyyy'}}</td>
           <td>{{empregado.funcao}}</td>
-          <td><button (click)="deleteEmpregado(empregado.id)" class="btn btn-danger">Excluir</button>
-              <button (click)="atualizaEmpregado(empregado.id)" class="btn btn-info" style="margin-left: 10px">Atualizar</button>
+          <td> 
+              <button (click)="atualizaEmpregado(empregado.id)" class="btn btn-info btn-xs btn-xs " style="margin-left: 10px">Atualizar</button>
               <button (click)="empregadoDetalhes(empregado.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+              <button (click)="deleteEmpregado(empregado.id)" class="btn btn-danger" style="margin-left: 10px" >Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
 

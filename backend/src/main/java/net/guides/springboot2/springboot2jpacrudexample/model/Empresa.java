@@ -32,9 +32,9 @@ public class Empresa {
 	@OneToOne
 	@JoinColumn
 	private Empregado proprietario;
-	@ManyToOne
-	@JoinColumn
-	private ArrayList<Empregado> empregado;
+	//@ManyToOne
+	//@JoinColumn
+	//private ArrayList<Empregado> empregado;
 	
 	public Empresa() {
 		
@@ -50,7 +50,7 @@ public class Empresa {
 		this.dataFundacao = dataFundacao;
 		this.idEmpregado = idEmpregado;
 		this.proprietario = proprietario;
-		this.empregado = empregado;
+		//this.empregado = empregado;
 	}
 
 	public long getId() {
@@ -116,8 +116,8 @@ public class Empresa {
 	public void setProprietario(Empregado proprietario) {
 		this.proprietario = proprietario;
 	}
-
-	public ArrayList<Empregado> getEmpregado() {
+	
+/*	public ArrayList<Empregado> getEmpregado() {
 		return empregado;
 	}
 
@@ -125,6 +125,6 @@ public class Empresa {
 		this.empregado = empregado;
 	}
 
-	
+	*/
 		
 }
