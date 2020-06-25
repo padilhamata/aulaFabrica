@@ -1,5 +1,6 @@
 package net.guides.springboot2.springboot2jpacrudexample.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.List;
@@ -35,6 +36,17 @@ public class ControleEmpregado {
 		return repositorioEmpregado.findAll();
 	}
 
+	@GetMapping("/empregados/proprietarios")
+	public List<Empregado> getAllProprietarios() {
+		ArrayList<Empregado> proprietarios= new ArrayList<Empregado>();
+		for (Empregado empregado : repositorioEmpregado.findAll()) {
+			if(empregado.getFuncao().equalsIgnoreCase("Proprietário")) {
+				proprietarios.add(empregado);
+			}
+		}
+		return proprietarios;
+	}
+	
 	
 	@GetMapping("/empregados/{id}")
 	public ResponseEntity<Empregado> getEmployeeById(@PathVariable(value = "id") Long idEmpregado)
@@ -43,6 +55,8 @@ public class ControleEmpregado {
 				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
 		return ResponseEntity.ok().body(empregado);
 	}
+	
+	
 	public Empregado getEmpregadoById(@PathVariable(value = "id") Long idEmpregado)
 			throws RecursoExcecaoNaoEncontrado {
 		Empregado empregado = repositorioEmpregado.findById(idEmpregado)

@@ -18,10 +18,10 @@
     <label><b>Data da Fundação: </b></label> {{empresa.dataFundacao}}
   </div>
   <div>
-    <label><b>Proprietário: </b></label> {{empresa.proprietario}}
+    <label><b>Proprietário: </b></label> {{empresa.proprietario.nome}}
   </div>
 </div>
 
 <br>
 <br>
-<button (click)="listar()" class="btn btn-primary">Back to Employee List</button><br>
+<button (click)="listar()" class="btn btn-primary">Voltar a lista de Empresas</button><br>

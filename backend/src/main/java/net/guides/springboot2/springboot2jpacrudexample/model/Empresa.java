@@ -1,5 +1,6 @@
 package net.guides.springboot2.springboot2jpacrudexample.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
@@ -21,23 +22,26 @@ public class Empresa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long id;
-	public String nome;
-	public String CNPJ;
-	public String telefone;
-	public String endereco;
-	public Date dataFundacao;
-	public Long idEmpregado;
+	private long id;
+	private String nome;
+	private String CNPJ;
+	private String telefone;
+	private String endereco;
+	private Date dataFundacao;
+	private Long idEmpregado;
 	@OneToOne
 	@JoinColumn
-	public Empregado proprietario;
+	private Empregado proprietario;
+	@ManyToOne
+	@JoinColumn
+	private ArrayList<Empregado> empregado;
 	
 	public Empresa() {
 		
 	}
 
 	public Empresa(String nome, String cNPJ, String telefone, String endereco, Date dataFundacao, Long idEmpregado,
-			Empregado proprietario) {
+			Empregado proprietario, ArrayList<Empregado> empregado) {
 		super();
 		this.nome = nome;
 		CNPJ = cNPJ;
@@ -46,6 +50,7 @@ public class Empresa {
 		this.dataFundacao = dataFundacao;
 		this.idEmpregado = idEmpregado;
 		this.proprietario = proprietario;
+		this.empregado = empregado;
 	}
 
 	public long getId() {
@@ -112,5 +117,14 @@ public class Empresa {
 		this.proprietario = proprietario;
 	}
 
+	public ArrayList<Empregado> getEmpregado() {
+		return empregado;
+	}
+
+	public void setEmpregado(ArrayList<Empregado> empregado) {
+		this.empregado = empregado;
+	}
+
+	
 		
 }

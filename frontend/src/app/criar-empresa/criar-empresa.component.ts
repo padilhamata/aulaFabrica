@@ -21,7 +21,7 @@ submitted = false;
     private router: Router) { }
 
   ngOnInit() {
-    this.empregados = this.empregadoServico.getEmpregadoLista();
+    this.empregados = this.empregadoServico.getProprietariosLista();
   }
 
   
