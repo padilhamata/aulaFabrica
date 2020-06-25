@@ -1,4 +1,4 @@
-<h3>Update Employee</h3>
+<h3>Atualizar Empregado</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -23,17 +23,24 @@
 
     <div class="form-group">
       <label for="name">CPF</label>
-      <input type="text" class="form-control" id="CPF" required [(ngModel)]="empregado.CPF" name="CPF">
+      <input type="text" class="form-control" id="CPF" required [(ngModel)]="empregado.cpf" name="CPF">
     </div>
 
     <div class="form-group">
       <label for="name">Data de nascimento</label>
-      <input type="text" class="form-control" id="dataNascimento" required [(ngModel)]="empregado.dataNascimento" name="dataNascimento">
+      <input type="date" class="form-control" id="dataNascimento" required [(ngModel)]="empregado.dataNascimento" name="dataNascimento">
     </div>
 
     <div class="form-group">
       <label for="name">Função</label>
-      <input type="text" class="form-control" id="funcao" required [(ngModel)]="empregado.funcao" name="funcao">
+      <select id="cars" class="form-control" id="funcao" required [(ngModel)]="empregado.funcao" name="funcao">
+        <option value="Administrativo">Administrativo</option>
+        <option value="Supervisão">Supervisão</option>
+        <option value="Gerência">Gerência</option>
+        <option value="Proprietário">Proprietário</option>
+      </select>
+
+     
     </div>
 
     <div class="form-group">

@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Lista de Empresa</h2>
+    <h2>Lista de Empresas</h2>
   </div>
   <div class="panel-body">
     <table class="table table-striped">
@@ -19,7 +19,7 @@
         <tr *ngFor="let empresa of empresas | async">
           
           <td>{{empresa.nome}}</td>
-          <td>{{empresa.CNPJ}}</td>
+          <td>{{empresa.cnpj}}</td>
           <td>{{empresa.telefone}}</td>
           <td>{{empresa.endereco}}</td>
           <td>{{empresa.dataFundacao | date: 'dd/MM/yyyy'}}</td>
@@ -27,6 +27,7 @@
            <td>
                <button (click)="atualizarEmpresa(empresa.id)" class="btn btn-info" style="margin-left: 10px">Atualizar</button>
               <button (click)="empresaDetalhes(empresa.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+              <button (click)="empresaDetalhes(empresa.id)" class="btn btn-info" style="margin-left: 10px">Exibir Funcionarios</button>
               <button (click)="deleteEmpresa(empresa.id)" class="btn btn-danger" style="margin-left: 10px" >Excluir</button>
           </td>
         </tr>

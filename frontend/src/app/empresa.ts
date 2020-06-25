@@ -2,7 +2,7 @@
 export class Empresa {
   id: number;
   nome: string;
-  CNPJ: string;
+  cnpj: string;
   telefone: string;
   endereco: string
   dataFundacao : Date;
