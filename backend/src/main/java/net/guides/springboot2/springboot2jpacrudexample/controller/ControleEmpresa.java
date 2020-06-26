@@ -48,6 +48,13 @@ public class ControleEmpresa {
 		return ResponseEntity.ok().body(empresa);
 	}
 
+	@PostMapping("/empresas/adicionaempregado{id}")
+	public Empresa adicionaEmpregado(@PathVariable(value = "id") Long id, @RequestBody Empresa empresa) throws RecursoExcecaoNaoEncontrado {
+	Empregado empregado = controleEmpregado.getEmpregadoById(idEmpresa);
+	empresa.setProprietario(empregado);
+		
+		return repositorioEmpresa.save(empresa);
+	}	
 	@PostMapping("/empresas/{id}")
 	public Empresa criarEmpregado(@PathVariable(value = "id") Long idEmpresa, @Valid @RequestBody Empresa empresa) throws RecursoExcecaoNaoEncontrado {
 	Empregado empregado = controleEmpregado.getEmpregadoById(idEmpresa);

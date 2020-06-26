@@ -12,6 +12,7 @@ import { CriarEmpresaComponent } from './criar-empresa/criar-empresa.component';
 import { EmpresaDetalhesComponent } from './empresa-detalhes/empresa-detalhes.component';
 import { EmpresaListComponent } from './empresa-list/empresa-list.component';
 import { AtualizarEmpresaComponent } from './atualizar-empresa/atualizar-empresa.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { AtualizarEmpresaComponent } from './atualizar-empresa/atualizar-empresa
     CriarEmpresaComponent,
     EmpresaDetalhesComponent,
     EmpresaListComponent,
-    AtualizarEmpresaComponent
+    AtualizarEmpresaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
