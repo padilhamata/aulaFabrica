@@ -24,6 +24,6 @@ export class EmpresaService {
   }
 
   adicionaEmpregado(id: number, idEmpresa: number): Observable<any>{
-    return this.http.post(`${this.baseUrl+'/adicionarempregado'}/${id}`, idEmpresa)
+    return this.http.post(`${this.baseUrl+'/adicionaempregado'}/${id}`, idEmpresa)
   }
 }

@@ -8,7 +8,7 @@ import { EmpresaListComponent } from './empresa-list/empresa-list.component';
 import { CriarEmpresaComponent } from './criar-empresa/criar-empresa.component'
 import { AtualizarEmpresaComponent } from './atualizar-empresa/atualizar-empresa.component'
 import { EmpresaDetalhesComponent } from './empresa-detalhes/empresa-detalhes.component'
-
+import { LoginComponent } from './login/login.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'empregados', pathMatch: 'full' },
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'atualizar/:id', component: AtualizarEmpresaComponent},
   { path: 'details/:id', component: ComponeteDetalhesempregado },
   { path: 'detalhes/:id', component: EmpresaDetalhesComponent }
-  
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
