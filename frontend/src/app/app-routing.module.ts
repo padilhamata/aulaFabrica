@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'update/:id', component: AtualizaEmpregadoComponente },
   { path: 'atualizar/:id', component: AtualizarEmpresaComponent},
   { path: 'details/:id', component: ComponeteDetalhesempregado },
-  { path: 'detalhes/:id', component: EmpresaDetalhesComponent }
+  { path: 'detalhes/:id', component: EmpresaDetalhesComponent },
   { path: 'login', component: LoginComponent }
 ];
 
