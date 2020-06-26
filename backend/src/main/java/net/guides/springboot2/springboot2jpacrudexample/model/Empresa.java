@@ -2,6 +2,7 @@ package net.guides.springboot2.springboot2jpacrudexample.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,16 +34,16 @@ public class Empresa {
 	@OneToOne
 	@JoinColumn
 	private Empregado proprietario;
-	//@ManyToOne
-	//@JoinColumn
-	//private ArrayList<Empregado> empregado;
+	@OneToMany
+	@JoinColumn
+	private List<Empregado> empregado;
 	
 	public Empresa() {
 		
 	}
 
 	public Empresa(String nome, String cNPJ, String telefone, String endereco, Date dataFundacao, Long idEmpregado,
-			Empregado proprietario, ArrayList<Empregado> empregado) {
+			Empregado proprietario, List<Empregado> empregado) {
 		super();
 		this.nome = nome;
 		CNPJ = cNPJ;
@@ -50,7 +52,7 @@ public class Empresa {
 		this.dataFundacao = dataFundacao;
 		this.idEmpregado = idEmpregado;
 		this.proprietario = proprietario;
-		//this.empregado = empregado;
+		this.empregado = empregado;
 	}
 
 	public long getId() {
@@ -116,15 +118,14 @@ public class Empresa {
 	public void setProprietario(Empregado proprietario) {
 		this.proprietario = proprietario;
 	}
-	
-/*	public ArrayList<Empregado> getEmpregado() {
+
+	public List<Empregado> getEmpregado() {
 		return empregado;
 	}
 
-	public void setEmpregado(ArrayList<Empregado> empregado) {
+	public void setEmpregado(List<Empregado> empregado) {
 		this.empregado = empregado;
 	}
 
-	*/
-		
+	
 }

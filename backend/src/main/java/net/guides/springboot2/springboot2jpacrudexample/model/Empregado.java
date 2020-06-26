@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Optional;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +16,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+ 
 @Entity
 @Table(name = "empregado")
-
 public class Empregado {
 
 
@@ -29,7 +32,9 @@ public class Empregado {
 	private String email;
 	private String cpf;
 	private Date dataNascimento;
-	private String Funcao;// Mudar posteriormente
+	private String funcao;
+	@ManyToOne
+	private Empresa empresa;
 	
 	
 	public Empregado() {
@@ -38,7 +43,7 @@ public class Empregado {
 
 
 	public Empregado(String nome, String endereco, String telefone, String email, String cpf, Date dataNascimento,
-			String funcao) {
+			String funcao, Empresa empresa) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
@@ -46,7 +51,8 @@ public class Empregado {
 		this.email = email;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
-		Funcao = funcao;
+		this.funcao = funcao;
+		this.empresa = empresa;
 	}
 
 
@@ -121,15 +127,23 @@ public class Empregado {
 
 
 	public String getFuncao() {
-		return Funcao;
+		return funcao;
 	}
 
 
 	public void setFuncao(String funcao) {
-		Funcao = funcao;
+		this.funcao = funcao;
 	}
 
 
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
 
 	
 	
