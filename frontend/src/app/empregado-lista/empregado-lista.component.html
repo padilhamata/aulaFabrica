@@ -23,7 +23,7 @@
           <td>{{empregado.telefone}}</td>
           <td>{{empregado.email}}</td>
           <td>{{empregado.cpf}}</td>
-          
+          <td>{{empregado.dataNascimento | date: 'dd/MM/yyyy'}}</td>
           <td>{{empregado.funcao}}</td>
           <td> 
               <button (click)="atualizaEmpregado(empregado.id)" class="btn btn-info btn-xs btn-xs " style="margin-left: 10px">Atualizar</button>
