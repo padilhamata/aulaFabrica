@@ -7,5 +7,6 @@ export class Empresa {
   endereco: string
   dataFundacao : Date;
   idEmpregado:  string;
+  empregados: any[];
   active: boolean;
 }
