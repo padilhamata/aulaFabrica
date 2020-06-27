@@ -1,0 +1,55 @@
+<h2>Empresa Detalhes</h2> 
+<hr/>
+<div *ngIf="empresa">
+  <div>
+    <label><b>Nome: </b></label> {{empresa.nome}}
+  </div>
+  <div>
+    <label><b>CNPJ: </b></label> {{empresa.cnpj}}
+  </div>
+  <div>
+    <label><b>Telefone: </b></label> {{empresa.telefone}}
+  </div>
+  <div>
+    <label><b>Endereço: </b></label> {{empresa.endereco}}
+  </div>  
+  <div>
+    <label><b>Data da Fundação: </b></label> {{empresa.dataFundacao | date: 'dd/MM/yyyy'}}
+  </div>
+  <div>
+    <label><b>Proprietário: </b></label> {{empresa.proprietario.nome}}
+  
+    <td>{{empresa.empregado[0].nome}}</td>
+  <!-- </div>
+      <tr *ngFor="let empresaEmpregado of empresa.empregado | async">
+        <td>{{empresaEmpregado.nome}}</td>
+        <td> <button (click)="adicionaEmpregado(empregado.id)" class="btn btn-info" style="margin-left: 10px">Adicionar</button>
+          </td>
+      </tr> -->
+</div>
+
+<br>
+<br>
+<h3>Funcionários da Empresa</h3>
+<table style="width:100%">
+  <tr>
+    <th>Nome</th>
+    <th>Função</th>
+    <th></th>
+  </tr>
+
+<h3>Todos os Funcionários</h3>
+<table style="width:100%">
+  <tr>
+    <th>Nome</th>
+    <th>Função</th>
+    <th>Comandos</th>
+  </tr>
+  <tr *ngFor="let empregado of empregados | async">
+    <td>{{empregado.nome}}</td>
+    <td>{{empregado.funcao}}</td>
+    <td> <button (click)="adicionaEmpregado(empregado.id)" class="btn btn-info" style="margin-left: 10px">Adicionar</button>
+      </td>
+  </tr>
+
+</table> 

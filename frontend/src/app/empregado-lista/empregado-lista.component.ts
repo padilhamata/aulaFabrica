@@ -1,4 +1,4 @@
-import { ComponeteDetalhesempregado } from '../empregado-detalhes/empregado-detalhes.component';
+
 import { Observable } from "rxjs";
 import { EmpregadoServico } from "../empregado.service";
 import { Empregado } from "../empregado";

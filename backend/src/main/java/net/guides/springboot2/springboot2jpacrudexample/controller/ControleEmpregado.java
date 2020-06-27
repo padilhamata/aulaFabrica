@@ -1,5 +1,6 @@
 package net.guides.springboot2.springboot2jpacrudexample.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.List;
@@ -35,6 +36,17 @@ public class ControleEmpregado {
 		return repositorioEmpregado.findAll();
 	}
 
+	@GetMapping("/empregados/proprietarios")
+	public List<Empregado> getAllProprietarios() {
+		ArrayList<Empregado> proprietarios= new ArrayList<Empregado>();
+		for (Empregado empregado : repositorioEmpregado.findAll()) {
+			if(empregado.getFuncao().equalsIgnoreCase("Proprietário")) {
+				proprietarios.add(empregado);
+			}
+		}
+		return proprietarios;
+	}
+	
 	
 	@GetMapping("/empregados/{id}")
 	public ResponseEntity<Empregado> getEmployeeById(@PathVariable(value = "id") Long idEmpregado)
@@ -43,7 +55,16 @@ public class ControleEmpregado {
 				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
 		return ResponseEntity.ok().body(empregado);
 	}
-
+	
+	
+	public Empregado getEmpregadoById(@PathVariable(value = "id") Long idEmpregado)
+			throws RecursoExcecaoNaoEncontrado {
+		Empregado empregado = repositorioEmpregado.findById(idEmpregado)
+				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
+		return empregado;
+	}
+	
+	
 	@PostMapping("/empregados")
 	public Empregado criarEmpregado(@Valid @RequestBody Empregado empregado) {
 		return repositorioEmpregado.save(empregado);
@@ -51,13 +72,17 @@ public class ControleEmpregado {
 
 	@PutMapping("/empregados/{id}")
 	public ResponseEntity<Empregado> atualizarEmpregado(@PathVariable(value = "id") Long idEmpregado,
-			@Valid @RequestBody Empregado employeeDetails) throws RecursoExcecaoNaoEncontrado {
+			@Valid @RequestBody Empregado empregadoDetalhes) throws RecursoExcecaoNaoEncontrado {
 		Empregado empregado = repositorioEmpregado.findById(idEmpregado)
 				.orElseThrow(() -> new RecursoExcecaoNaoEncontrado("Empregado não encontrado para este id: " + idEmpregado));
-
-		empregado.setidEmail(employeeDetails.getidEmail());
-		empregado.setsobrenome(employeeDetails.getsobrenome());
-		empregado.setnome(employeeDetails.getnome());
+		empregado.setNome(empregadoDetalhes.getNome());
+		empregado.setEndereco(empregadoDetalhes.getEndereco());
+		empregado.setTelefone(empregadoDetalhes.getTelefone());
+		empregado.setEmail(empregadoDetalhes.getEmail());
+		empregado.setCpf(empregadoDetalhes.getCpf());
+		empregado.setDataNascimento(empregado.getDataNascimento());
+		empregado.setFuncao(empregadoDetalhes.getFuncao());
+		
 		final Empregado atualizarEmpregado = repositorioEmpregado.save(empregado);
 		return ResponseEntity.ok(atualizarEmpregado);
 	}

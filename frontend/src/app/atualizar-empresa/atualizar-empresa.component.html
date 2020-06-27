@@ -1,0 +1,40 @@
+<h3>Atualizar Empresa</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="nome" required [(ngModel)]="empresa.nome" name="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="name">CNPJ</label>
+      <input type="text" class="form-control" id="CNPJ" required [(ngModel)]="empresa.cnpj" name="CNPJ">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Telefone</label>
+      <input type="text" class="form-control" id="telefone" required [(ngModel)]="empresa.telefone" name="telefone">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Endereco</label>
+      <input type="text" class="form-control" id="endereco" required [(ngModel)]="empresa.endereco" name="endereco">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Data da Fundação</label>
+      <input type="date" class="form-control" id="dataFundacao" required [(ngModel)]="empresa.dataFundacao" name="dataFundacao">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Propietário</label>
+      
+        <select  class="form-control" id="propietario" required [(ngModel)]="empresa.idEmpregado" name="propietario">          
+          <option *ngFor="let empregado of empregados | async" value={{empregado.id}}>{{empregado.nome}}</option>
+      </select>
+     
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

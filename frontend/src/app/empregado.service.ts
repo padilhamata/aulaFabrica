@@ -30,4 +30,8 @@ export class EmpregadoServico {
   getEmpregadoLista(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  getProprietariosLista(): Observable<any> {
+    return this.http.get(`${this.baseUrl+'/proprietarios'}`);
+  }
 }

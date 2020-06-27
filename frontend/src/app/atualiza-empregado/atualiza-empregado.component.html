@@ -1,4 +1,4 @@
-<h3>Update Employee</h3>
+<h3>Atualizar Empregado</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -7,13 +7,45 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Sobrenome</label>
-      <input type="text" class="form-control" id="sobrenome" required [(ngModel)]="empregado.sobrenome" name="sobrenome">
+      <label for="name">Endereço</label>
+      <input type="text" class="form-control" id="endereco" required [(ngModel)]="empregado.endereco" name="endereco">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Telefone</label>
+      <input type="text" class="form-control" id="telefone" required [(ngModel)]="empregado.telefone" name="telefone">
     </div>
 
     <div class="form-group">
       <label for="name">Email</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="empregado.idEmail" name="email">
+      <input type="text" class="form-control" id="email" required [(ngModel)]="empregado.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="name">CPF</label>
+      <input type="text" class="form-control" id="CPF" required [(ngModel)]="empregado.cpf" name="CPF">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Data de nascimento</label>
+      <input type="date" class="form-control" id="dataNascimento" required [(ngModel)]="empregado.dataNascimento" name="dataNascimento">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Função</label>
+      <select id="cars" class="form-control" id="funcao" required [(ngModel)]="empregado.funcao" name="funcao">
+        <option value="Administrativo">Administrativo</option>
+        <option value="Supervisão">Supervisão</option>
+        <option value="Gerência">Gerência</option>
+        <option value="Proprietário">Proprietário</option>
+      </select>
+
+     
+    </div>
+
+    <div class="form-group">
+      <label for="name">Telefone</label>
+      <input type="text" class="form-control" id="telefone" required [(ngModel)]="empregado.telefone" name="telefone">
     </div>
 
     <button type="submit" class="btn btn-success">Enviar</button>

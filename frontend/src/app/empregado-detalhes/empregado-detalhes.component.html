@@ -6,10 +6,22 @@
     <label><b>Nome: </b></label> {{empregado.nome}}
   </div>
   <div>
-    <label><b>sobrenome: </b></label> {{empregado.sobrenome}}
+    <label><b>Endereço: </b></label> {{empregado.endereco}}
   </div>
   <div>
-    <label><b>Email: </b></label> {{empregado.idEmail}}
+    <label><b>Telefone: </b></label> {{empregado.telefone}}
+  </div>
+  <div>
+    <label><b>Email: </b></label> {{empregado.email}}
+  </div>
+  <div>
+    <label><b>CPF: </b></label> {{empregado.cpf}}
+  </div>
+  <div>
+    <label><b>Data de Nascimento: </b></label> {{empregado.dataNascimento | date: 'dd/MM/yyyy'}}
+  </div>
+  <div>
+    <label><b>Função: </b></label> {{empregado.funcao}}
   </div>  
 </div>
 
